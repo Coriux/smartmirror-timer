@@ -1,0 +1,20 @@
+//- Layout after here
+header
+  h1 data.hello
+
+//- Inline styles after here
+style.
+  #widget-#{widget._id} {
+    //- some-crazy: styles;
+  }
+
+//- Inline scripts after here
+script.
+    // Get the module element
+    var module = document.getElementById('widget-#{widget._id}');
+
+    // Get the elements inside your module element
+    var moduleElement = module.querySelector('h1');
+
+    // Do some fancy stuff
+    moduleElement.innerText = '#{data.hello} !!!';
