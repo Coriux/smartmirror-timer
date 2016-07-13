@@ -5,7 +5,7 @@ exports.get = function(params) {
   return new Promise((resolve, reject) => {
 
     if(true)
-      resolve(({hello: 'Hello World'}));
+      resolve(({hello: 'Hello World!'}));
     else {
       reject(new Error('Nope'));
     }
