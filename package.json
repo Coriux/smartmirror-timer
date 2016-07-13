@@ -12,7 +12,7 @@
   },
   "keywords": [
     "smartmirror",
-    "timer",
+    "timer"
   ],
   "author": "Chris Uhrig",
   "license": "MIT",
@@ -32,6 +32,5 @@
       }
     },
     "size": ["2x2"]
-    ]
   }
 }
