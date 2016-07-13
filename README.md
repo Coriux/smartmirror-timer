@@ -1,1 +1,1 @@
-# smartmirror-toothbrush
+# smartmirror-timer

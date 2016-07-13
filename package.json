@@ -1,12 +1,20 @@
 {
-  "name": "smartmirror-module-template",
+  "name": "smartmirror-timer",
   "version": "1.0.0",
-  "description": "template for a smartmirror module",
+  "description": "timer for the smartmirror albert",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Roman Kollatschny",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Coriux/smartmirror-timer.git"
+  },
+  "keywords": [
+    "smartmirror",
+    "timer",
+  ],
+  "author": "Chris Uhrig",
   "license": "MIT",
   "dependencies": {
     "log": "^1.4.0"
@@ -15,15 +23,15 @@
     "express": "^4.13.4",
     "jade": "^1.11.0"
   },
+  "homepage": "https://github.com/Coriux/smartmirror-timer.git",
   "smartmirror": {
     "settings": {
-      "hello": {
-        "type": "string",
-        "desc": "Hello"
+      "timer": {
+        "type": "number",
+        "desc": "Timer"
       }
     },
-    "size": [
-      "4x2"
+    "size": ["2x2"]
     ]
   }
 }
