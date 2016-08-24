@@ -1,14 +1,10 @@
 'use strict';
 
-exports.get = function(params) {
-  // Return new Promise
+var jade = require('jade'); // optional
+
+exports.get = (params) => {
+
   return new Promise((resolve, reject) => {
-
-    if(true)
-      resolve(({hello: 'Hello World!'}));
-    else {
-      reject(new Error('Nope'));
-    }
-
-  });
+        resolve();
+});
 };
