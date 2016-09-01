@@ -37,7 +37,6 @@ script.
             seconds = seconds < 10 ? "0" + seconds : seconds;
 
             display.textContent = minutes + ":" + seconds;
-            console.log (timer);
 
             if (timer == 0) {
                 displayFinal.textContent = "Finished";
@@ -53,8 +52,6 @@ script.
             if (--timer < 0) {
                 timer = duration;
             }
-
-
 
         }, 1000);
     }
