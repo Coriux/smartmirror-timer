@@ -25,12 +25,6 @@
   },
   "homepage": "https://github.com/Coriux/smartmirror-timer.git",
   "smartmirror": {
-    "settings": {
-      "timer": {
-        "type": "number",
-        "desc": "Timer"
-      }
-    },
     "size": ["2x2"]
   }
 }
