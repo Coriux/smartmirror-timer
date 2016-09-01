@@ -13,7 +13,8 @@ style.
       font-size: 30px;
       vertical-align: middle;
       display: table-cell;
-      height: 6.5em;s
+      height: 7em;
+      width: 7em;
   }
 
 
@@ -23,10 +24,12 @@ script.
     var module = document.getElementById('widget-#{widget._id}');
 
     function startTimer(duration) {
+        var duration = duration*60;
         var timer = duration, minutes, seconds;
         var display = document.querySelector('#time');
+        var displayFinal = document.querySelector('.timer');
 
-        setInterval(function () {
+        var refreshIntervalId = setInterval(function () {
             minutes = parseInt(timer / 60, 10)
             seconds = parseInt(timer % 60, 10);
 
@@ -34,15 +37,25 @@ script.
             seconds = seconds < 10 ? "0" + seconds : seconds;
 
             display.textContent = minutes + ":" + seconds;
+            console.log (timer);
+
+            if (timer == 0) {
+                displayFinal.textContent = "Finished";
+                clearInterval(refreshIntervalId);
+
+                socket.emit('timer', {
+                    msg: 'finish'
+                });
+
+                return;
+            }
 
             if (--timer < 0) {
                 timer = duration;
             }
+
+
+
         }, 1000);
     }
 
-
-    window.onload = function () {
-        var countdown = 60 * 2;
-        startTimer(countdown);
-    };
