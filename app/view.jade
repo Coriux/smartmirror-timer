@@ -1,9 +1,7 @@
 //- Layout after here
 header
 .timer
-    | Countdown &nbsp;
-    span#time 02:00
-    |  minutes.
+    span#time
 
 
 //- Inline styles after here
@@ -24,28 +22,23 @@ script.
     var module = document.getElementById('widget-#{widget._id}');
 
     function startTimer(duration) {
+
         var duration = duration*60;
         var timer = duration, minutes, seconds;
         var display = document.querySelector('#time');
         var displayFinal = document.querySelector('.timer');
 
-        var refreshIntervalId = setInterval(function () {
+        setInterval(function () {
             minutes = parseInt(timer / 60, 10)
             seconds = parseInt(timer % 60, 10);
 
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
 
-            display.textContent = minutes + ":" + seconds;
+            display.textContent = "Countdown " + minutes + ":" + seconds + " minutes";
 
             if (timer == 0) {
                 displayFinal.textContent = "Finished";
-                clearInterval(refreshIntervalId);
-
-                socket.emit('timer', {
-                    msg: 'finish'
-                });
-
                 return;
             }
 
@@ -53,6 +46,13 @@ script.
                 timer = duration;
             }
 
+
+
         }, 1000);
     }
 
+
+    socket.on('timer', function (data) {
+        var duration = data.timer;
+        startTimer(duration);
+    });
